@@ -78,11 +78,11 @@ export const bidsService = {
    * POST /bids/manual
    * Places a manual bid on a project
    */
-  async placeManualBid(projectId: number): Promise<{ success: boolean; data: string; meta?: any }> {
-    const response = (await api.post('/bids/manual', { projectId })) as { success: boolean; data: string; meta?: any };
+  async placeManualBid(projectId: number): Promise<{ success: boolean; data: any; meta?: any }> {
+    const response = (await api.post('/bids/manual', { projectId })) as any;
 
     if (!response.success) {
-      throw new Error('Failed to place manual bid');
+      throw new Error(response.error?.message || 'Failed to place manual bid');
     }
 
     return response;

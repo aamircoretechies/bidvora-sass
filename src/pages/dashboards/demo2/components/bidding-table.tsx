@@ -275,7 +275,7 @@ const BiddingTable = () => {
       });
     }, 300);
     return () => clearTimeout(timeoutId);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagination.pageIndex, pagination.pageSize, appliedFilters]);
 
   // We are handling sorting and filtering server-side now (if the API supports it),
@@ -427,7 +427,7 @@ const BiddingTable = () => {
 
           return (
             <div className="flex items-center gap-1.5">
-              <Badge variant={variant} appearance="light" className="capitalize">
+              <Badge variant={variant} appearance="ghost" className="capitalize">
                 {row.original.status || 'Unknown'}
               </Badge>
               {isFailed && errorMessage && (
