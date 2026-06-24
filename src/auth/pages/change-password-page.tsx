@@ -193,6 +193,7 @@ export function ChangePasswordPage() {
                       type={passwordVisible ? 'text' : 'password'}
                       autoComplete="new-password"
                       {...field}
+                      variant="lg"
                     />
                     <Button
                       type="button"
@@ -225,6 +226,7 @@ export function ChangePasswordPage() {
                       type={confirmPasswordVisible ? 'text' : 'password'}
                       autoComplete="new-password"
                       {...field}
+                      variant="lg"
                     />
                     <Button
                       type="button"
@@ -248,7 +250,7 @@ export function ChangePasswordPage() {
             />
           </div>
 
-          <Button type="submit" className="w-full" disabled={isProcessing}>
+          <Button type="submit" size="lg" className="w-full" disabled={isProcessing}>
             {isProcessing ? (
               <span className="flex items-center gap-2">
                 <LoaderCircleIcon className="h-4 w-4" /> Updating Password...

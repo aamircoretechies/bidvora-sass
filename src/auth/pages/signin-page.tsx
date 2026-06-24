@@ -221,11 +221,12 @@ export function SignInPage() {
         <FormField
           control={form.control}
           name="email"
+          
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Your email" {...field} />
+                <Input variant="lg" placeholder="Your email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -235,6 +236,7 @@ export function SignInPage() {
         <FormField
           control={form.control}
           name="password"
+          
           render={({ field }) => (
             <FormItem>
               <div className="flex justify-between items-center gap-2.5">
@@ -245,6 +247,8 @@ export function SignInPage() {
                   placeholder="Your password"
                   type={passwordVisible ? 'text' : 'password'} // Toggle input type
                   {...field}
+                 variant="lg"
+              
                 />
                 <Button
                   type="button"
@@ -293,7 +297,7 @@ export function SignInPage() {
           )}
         />
 
-        <Button type="submit" className="w-full" disabled={isProcessing}>
+        <Button type="submit" size="lg" className="w-full mt-4" disabled={isProcessing}>
           {isProcessing ? (
             <span className="flex items-center gap-2">
               <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Loading...

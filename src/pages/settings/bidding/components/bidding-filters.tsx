@@ -56,7 +56,7 @@ const BiddingFilters = ({ data, onChange }: { data?: any, onChange?: (field: str
             value={parseTags(data?.targetCurrencies)} 
             onChange={handleTagsChange('targetCurrencies')}
             placeholder="Add currency..."
-            tagVariant="secondary"
+            tagVariant="success"
           />
         </div>
 

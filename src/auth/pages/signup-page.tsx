@@ -153,6 +153,7 @@ export function SignUpPage() {
                   placeholder="Your email address"
                   type="email"
                   {...field}
+                  variant="lg"
                 />
               </FormControl>
               <FormMessage />
@@ -171,6 +172,7 @@ export function SignUpPage() {
                   placeholder="Create a password"
                   type={passwordVisible ? 'text' : 'password'}
                   {...field}
+                  variant="lg"
                 />
                 <Button
                   type="button"
@@ -202,10 +204,12 @@ export function SignUpPage() {
                   placeholder="Confirm your password"
                   type={confirmPasswordVisible ? 'text' : 'password'}
                   {...field}
+                  variant="lg"
                 />
                 <Button
                   type="button"
                   variant="ghost"
+            
                   mode="icon"
                   onClick={() =>
                     setConfirmPasswordVisible(!confirmPasswordVisible)
@@ -252,7 +256,7 @@ export function SignUpPage() {
           )}
         />
 
-        <Button type="submit" className="w-full" disabled={isProcessing}>
+        <Button type="submit" size="lg" className="w-full mt-4" disabled={isProcessing}>
           {isProcessing ? (
             <span className="flex items-center gap-2">
               <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Creating account...

@@ -594,7 +594,7 @@ const BiddingTable = () => {
                   </Button>
                 }
               />
-              <Button variant="secondary" mode="icon" title='Export Filtered Data' onClick={handleExport} disabled={isExporting}>
+              <Button variant="secondary" mode="icon" title='Export Date Filtered Data' onClick={handleExport} disabled={isExporting}>
                 {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download />}
               </Button>
             </div>

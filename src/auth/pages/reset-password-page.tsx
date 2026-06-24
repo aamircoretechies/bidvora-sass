@@ -99,6 +99,7 @@ export function ResetPasswordPage() {
             <FormField
               control={form.control}
               name="email"
+           
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
@@ -107,6 +108,7 @@ export function ResetPasswordPage() {
                       placeholder="your.email@example.com"
                       type="email"
                       autoComplete="email"
+                      variant="lg"
                       {...field}
                     />
                   </FormControl>
@@ -115,7 +117,7 @@ export function ResetPasswordPage() {
               )}
             />
 
-            <Button type="submit" className="w-full" disabled={isProcessing}>
+            <Button type="submit" size="lg" className="w-full" disabled={isProcessing}>
               {isProcessing ? (
                 <span className="flex items-center gap-2">
                   <LoaderCircleIcon className="h-4 w-4 animate-spin" /> Sending Link...
