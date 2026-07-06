@@ -93,7 +93,8 @@ const performRefresh = async (): Promise<string> => {
 
   if (!response.ok) throw new Error('Refresh token expired or invalid');
 
-  const data = await response.json();
+  const text = await response.text();
+  const data = text ? JSON.parse(text) : {};
   if (!data?.success || !data?.data?.accessToken) {
     throw new Error('Unexpected response from /auth/refresh');
   }
@@ -123,7 +124,10 @@ export const apiClient = async (
   const response = await fetch(url, config);
 
   // ── Happy path ──────────────────────────────────────────────────────────────
-  if (response.ok) return response.json();
+  if (response.ok) {
+    const text = await response.text();
+    return text ? JSON.parse(text) : {};
+  }
 
   // ── 401: attempt token refresh then retry once ──────────────────────────────
   if (response.status === 401 && !_isRetry) {

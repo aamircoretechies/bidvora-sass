@@ -49,7 +49,8 @@ export const SupabaseAdapter = {
         body: JSON.stringify({ email, password }),
       });
 
-      const response = await res.json();
+      const text = await res.text();
+      const response = text ? JSON.parse(text) : {};
 
       if (!res.ok) {
         // Surface the actual server error message (e.g. "Invalid credentials")
@@ -127,7 +128,8 @@ export const SupabaseAdapter = {
         body: JSON.stringify({ email, password }),
       });
 
-      const response = await res.json();
+      const text = await res.text();
+      const response = text ? JSON.parse(text) : {};
 
       if (!res.ok) {
         if (response?.error?.code === 'VALIDATION_ERROR' && response?.error?.details) {

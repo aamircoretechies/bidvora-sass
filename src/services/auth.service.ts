@@ -77,7 +77,8 @@ export const authService = {
       throw new Error('Refresh token is invalid or expired');
     }
 
-    const data: RefreshResponse = await response.json();
+    const text = await response.text();
+    const data: RefreshResponse = text ? JSON.parse(text) : {} as RefreshResponse;
 
     if (!data.success || !data.data?.accessToken) {
       throw new Error('Unexpected response from /auth/refresh');
