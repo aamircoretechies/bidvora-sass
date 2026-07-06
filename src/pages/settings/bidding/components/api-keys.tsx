@@ -18,21 +18,21 @@ const ApiKeys = ({ data, onChange }: { data?: any, onChange?: (field: string, va
       const response = await freelancerService.getFreelancerAuthorizeUrl();
 
       if (response.success && response.data?.url) {
-        const width = 600;
-        const height = 700;
-        const left = window.screen.width / 2 - width / 2;
-        const top = window.screen.height / 2 - height / 2;
-
-        const popup = window.open(
-          response.data.url,
-          'Reconnect Freelancer',
-          `width=${width},height=${height},top=${top},left=${left},toolbar=no,menubar=no,scrollbars=yes,resizable=yes`
-        );
-
-        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-          // Popup blocked — fallback to redirect
-          window.location.href = response.data.url;
+        let authUrl = response.data.url;
+        try {
+          const urlObj = new URL(authUrl);
+          const redirectUri = urlObj.searchParams.get('redirect_uri');
+          if (redirectUri) {
+            // Ensure the redirect URI points to the current environment (e.g., localhost)
+            const urlPath = new URL(redirectUri).pathname;
+            const newRedirect = window.location.origin + urlPath;
+            urlObj.searchParams.set('redirect_uri', newRedirect);
+            authUrl = urlObj.toString();
+          }
+        } catch (e) {
+          // Fallback to original url if parsing fails
         }
+        window.location.href = authUrl;
       }
     } catch (error: any) {
       toast.error(error?.message || 'Failed to get Freelancer authorization URL');

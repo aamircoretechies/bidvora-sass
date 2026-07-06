@@ -25,15 +25,10 @@ export const FreelancerCallbackPage = () => {
         if (response.success && response.data.connected) {
           setStatus('success');
           toast.success('Freelancer account connected successfully.');
-          
-          // If opened in popup
-          if (window.opener && !window.opener.closed) {
-            window.opener.postMessage({ type: 'FREELANCER_CONNECTED' }, window.location.origin);
-            window.close();
-          } else {
-            // Fallback redirect with full reload
+          // Always redirect in the same tab to the dashboard
+          setTimeout(() => {
             window.location.href = '/';
-          }
+          }, 1000);
         } else {
           setStatus('error');
           setErrorMessage('Unable to connect Freelancer account. Please try again.');
@@ -75,7 +70,7 @@ export const FreelancerCallbackPage = () => {
             </svg>
           </div>
           <p className="text-lg font-medium text-success">Freelancer account connected successfully.</p>
-          <p className="text-sm text-secondary-foreground">You can safely close this window.</p>
+          <p className="text-sm text-secondary-foreground">Redirecting you back to dashboard...</p>
         </div>
       )}
 
@@ -88,10 +83,10 @@ export const FreelancerCallbackPage = () => {
           </div>
           <p className="text-lg font-medium text-destructive">{errorMessage}</p>
           <button 
-            onClick={() => window.close()} 
+            onClick={() => window.location.href = '/'} 
             className="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
           >
-            Close Window
+            Go to Dashboard
           </button>
         </div>
       )}
