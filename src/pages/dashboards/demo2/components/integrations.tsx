@@ -54,7 +54,18 @@ const Integrations = ({ isFreelancerConnected = false, onConnected }: { isFreela
       const response = await freelancerService.getFreelancerAuthorizeUrl();
 
       if (response.success && response.data?.url) {
-        window.location.href = response.data.url;
+        let authUrl = response.data.url;
+        try {
+          const urlObj = new URL(authUrl);
+          // Always use the correct callback path for this app, pointing to the current
+          // environment's origin so it works on both localhost and Vercel.
+          const newRedirect = window.location.origin + '/freelancer/callback';
+          urlObj.searchParams.set('redirect_uri', newRedirect);
+          authUrl = urlObj.toString();
+        } catch (e) {
+          // Fallback to original url if parsing fails
+        }
+        window.location.href = authUrl;
       }
     } catch (error: any) {
       toast.error(error?.message || 'Failed to get authorization URL');

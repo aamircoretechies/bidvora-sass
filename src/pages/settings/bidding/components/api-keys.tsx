@@ -21,14 +21,11 @@ const ApiKeys = ({ data, onChange }: { data?: any, onChange?: (field: string, va
         let authUrl = response.data.url;
         try {
           const urlObj = new URL(authUrl);
-          const redirectUri = urlObj.searchParams.get('redirect_uri');
-          if (redirectUri) {
-            // Ensure the redirect URI points to the current environment (e.g., localhost)
-            const urlPath = new URL(redirectUri).pathname;
-            const newRedirect = window.location.origin + urlPath;
-            urlObj.searchParams.set('redirect_uri', newRedirect);
-            authUrl = urlObj.toString();
-          }
+          // Always use the correct callback path for this app, pointing to the current
+          // environment's origin so it works on both localhost and Vercel.
+          const newRedirect = window.location.origin + '/freelancer/callback';
+          urlObj.searchParams.set('redirect_uri', newRedirect);
+          authUrl = urlObj.toString();
         } catch (e) {
           // Fallback to original url if parsing fails
         }
