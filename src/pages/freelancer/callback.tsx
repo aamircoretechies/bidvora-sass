@@ -31,8 +31,8 @@ export const FreelancerCallbackPage = () => {
             window.opener.postMessage({ type: 'FREELANCER_CONNECTED' }, window.location.origin);
             window.close();
           } else {
-            // Fallback redirect
-            navigate('/', { replace: true });
+            // Fallback redirect with full reload
+            window.location.href = '/';
           }
         } else {
           setStatus('error');

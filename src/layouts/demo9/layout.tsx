@@ -7,6 +7,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router';
 import { MENU_SIDEBAR } from '@/config/menu.config';
 import { useBodyClass } from '@/hooks/use-body-class';
 import { useMenu } from '@/hooks/use-menu';
+import { useDashboard } from '@/hooks/use-dashboard';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useSettings } from '@/providers/settings-provider';
 import { Button } from '@/components/ui/button';
@@ -22,6 +23,7 @@ import { Navbar } from './components/navbar';
 import { Toolbar, ToolbarActions, ToolbarHeading } from './components/toolbar';
 
 export function Demo9Layout() {
+  const { data: dashboardData } = useDashboard();
   const { setOption } = useSettings();
   const location = useLocation();
   const { pathname } = location;
@@ -53,10 +55,10 @@ export function Demo9Layout() {
       <div className="flex grow flex-col in-data-[sticky-header=on]:pt-(--header-height)">
         <Header />
 
-        {!isMobile && <Navbar />}
+        {!isMobile && dashboardData?.isFreelancerConnected && <Navbar />}
 
         <main className="flex flex-col grow bg-[#eef0f6] dark:bg-[#16161a]" role="content">
-          {!pathname.includes('/public-profile/') && (
+          {!pathname.includes('/public-profile/') && dashboardData?.isFreelancerConnected && (
             <Toolbar>
               <ToolbarHeading title={bidTitle} />
 
@@ -75,8 +77,7 @@ export function Demo9Layout() {
                       {date?.from ? (
                         date.to ? (
                           <span>
-                            {format(new Date(), 'LLL dd, y')}{/*  -{' '} */}
-                            {/* {format(date.to, 'LLL dd, y')} */}
+                            {format(new Date(), 'LLL dd, y')}
                           </span>
                         ) : (
                           format(new Date(), 'LLL dd, y')

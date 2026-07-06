@@ -33,7 +33,14 @@ const Integrations = ({ isFreelancerConnected = false, onConnected }: { isFreela
       if (event.origin !== window.location.origin) return;
       if (event.data?.type === 'FREELANCER_CONNECTED') {
         setConnected(true);
-        if (onConnected) onConnected();
+        if (onConnected) {
+          onConnected();
+        }
+        
+        // Refresh the parent tab so updated things are displayed (like the Navbar)
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }
     };
 
