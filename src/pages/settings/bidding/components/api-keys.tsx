@@ -18,7 +18,21 @@ const ApiKeys = ({ data, onChange }: { data?: any, onChange?: (field: string, va
       const response = await freelancerService.getFreelancerAuthorizeUrl();
 
       if (response.success && response.data?.url) {
-        window.location.href = response.data.url;
+        const width = 600;
+        const height = 700;
+        const left = window.screen.width / 2 - width / 2;
+        const top = window.screen.height / 2 - height / 2;
+
+        const popup = window.open(
+          response.data.url,
+          'Reconnect Freelancer',
+          `width=${width},height=${height},top=${top},left=${left},toolbar=no,menubar=no,scrollbars=yes,resizable=yes`
+        );
+
+        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+          // Popup blocked — fallback to redirect
+          window.location.href = response.data.url;
+        }
       }
     } catch (error: any) {
       toast.error(error?.message || 'Failed to get Freelancer authorization URL');
