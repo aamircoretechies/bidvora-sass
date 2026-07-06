@@ -37,7 +37,7 @@ export const SupabaseAdapter = {
 
     const API_BASE_URL =
       import.meta.env.VITE_API_BASE_URL ||
-      'https://freelancer-backend.coretechiestest.org/api/v1';
+      '/api/v1';
 
     try {
       // Use raw fetch to bypass the apiClient 401 interceptor.
@@ -118,7 +118,7 @@ export const SupabaseAdapter = {
 
     const API_BASE_URL =
       import.meta.env.VITE_API_BASE_URL ||
-      'https://freelancer-backend.coretechiestest.org/api/v1';
+      '/api/v1';
 
     try {
       const res = await fetch(`${API_BASE_URL}/auth/register`, {

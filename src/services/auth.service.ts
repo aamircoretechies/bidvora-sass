@@ -65,7 +65,7 @@ export const authService = {
   ): Promise<{ accessToken: string; refreshToken: string }> {
     const API_BASE_URL =
       import.meta.env.VITE_API_BASE_URL ||
-      'https://freelancer-backend.coretechiestest.org/api/v1';
+      '/api/v1';
 
     const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
       method: 'POST',

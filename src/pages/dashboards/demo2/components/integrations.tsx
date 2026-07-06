@@ -75,7 +75,7 @@ const Integrations = ({ isFreelancerConnected = false, onConnected }: { isFreela
     {
       logo: 'freelancer.svg',
       title: 'Freelancer Account',
-      email: user?.email ?? '',
+      email: connected ? (user?.email ?? '') : 'Not connected yet',
       description: 'Integrate for enhanced collaboration in web development.',
       connected: connected,
     },
@@ -160,6 +160,13 @@ const Integrations = ({ isFreelancerConnected = false, onConnected }: { isFreela
   return (
 
     <div className="grid gap-5">
+      {!connected && (
+        <div className="rounded-xl bg-amber-50 dark:bg-amber-950/30 px-4 py-3 flex gap-3 items-start">
+          <p className="text-xs text-amber-700 dark:text-amber-400 leading-snug">
+            <strong>Important:</strong> Please ensure you log into Freelancer using the exact same account that generated the API keys.
+          </p>
+        </div>
+      )}
       {items.map((item, index) => {
         return renderItem(item, index);
       })}
