@@ -103,10 +103,10 @@ export function ProfileDialog({
                         className="text-muted-foreground text-base"
                       />
                       <Link
-                        to="mailto:jenny@kteam.com"
+                        to="mailto:support@bidvora.app"
                         className="text-secondary-foreground hover:text-primary"
                       >
-                        jenny@kteam.com
+                        support@bidvora.app
                       </Link>
                     </div>
                   </div>

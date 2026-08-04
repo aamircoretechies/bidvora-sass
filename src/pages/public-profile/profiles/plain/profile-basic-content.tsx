@@ -25,7 +25,7 @@ export function ProfilePlainContent() {
     { icon: Dribbble, link: 'KeenThemes' },
     { icon: Mail, link: 'Author Level 100' },
     { icon: LoaderPinwheel, link: 'UI/UX Desiger' },
-    { icon: RiTwitterXLine, link: 'jenny@kteam.com' },
+    { icon: RiTwitterXLine, link: 'support@bidvora.app' },
     { icon: RiYoutubeLine, link: 'https://keenthemes.com' },
     { icon: RiFacebookCircleLine, link: 'keenthemes' },
   ];

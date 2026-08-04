@@ -32,7 +32,7 @@ export function ProfileModalPage() {
         info={[
           { label: 'KeenThemes', icon: Luggage },
           { label: '', icon: null },
-          { email: 'jenny@kteam.com', icon: Mail },
+          { email: 'support@bidvora.app', icon: Mail },
         ]}
       />
       <Container>

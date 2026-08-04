@@ -33,7 +33,7 @@ export function ProfileBloggerPage() {
         info={[
           { label: 'KeenThemes', icon: Dribbble },
           { label: 'SF, Bay Area', icon: MapPin },
-          { email: 'jenny@kteam.com', icon: Mail },
+          { email: 'support@bidvora.app', icon: Mail },
         ]}
       />
       <Container>

@@ -21,7 +21,7 @@ const Channels = () => {
     {
       icon: Mail,
       title: 'Email',
-      description: 'jamescollins@ktstudio.com',
+      description: 'support@bidvora.app',
       button: true,
       actions: <Switch id="size-sm" size="sm" defaultChecked />,
     },

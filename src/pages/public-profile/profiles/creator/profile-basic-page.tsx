@@ -36,7 +36,7 @@ export function ProfileCreatorPage() {
         info={[
           { label: 'inferno.com', icon: Volleyball },
           { label: 'SF, Bay Area', icon: MapPin },
-          { email: 'jenny@kteam.com', icon: Mail },
+          { email: 'support@bidvora.app', icon: Mail },
         ]}
       />
       <Container>

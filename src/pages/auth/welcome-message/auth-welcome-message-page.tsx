@@ -31,10 +31,10 @@ export function AuthWelcomeMessagePage() {
                   Jayson Tatum
                 </span>
                 <Link
-                  to="mailto:jaytatum@ktstudio.com"
+                  to="mailto:support@bidvora.app"
                   className="text-secondary-foreground hover:text-primary"
                 >
-                  jaytatum@ktstudio.com
+                  support@bidvora.app
                 </Link>
                 <span className="size-0.75 bg-mono/50 rounded-full"></span>
                 <Button mode="link" asChild>
