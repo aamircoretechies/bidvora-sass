@@ -37,7 +37,7 @@ export function AccountSettingsModalPage() {
         info={[
           { label: 'KeenThemes', icon: Luggage },
           { label: '', icon: null },
-          { email: 'support@bidvora.app', icon: Mail },
+          { email: 'jenny@kteam.com', icon: Mail },
         ]}
       />
       <Container>

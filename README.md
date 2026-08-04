@@ -91,5 +91,5 @@ You can test login using:
 
 ### Reporting Issues
 
-If you encounter any issues or have suggestions for improvement, please contact us at [support@bidvora.app](mailto:support@bidvora.app).
+If you encounter any issues or have suggestions for improvement, please contact us at [support@keenthemes.com](mailto:support@keenthemes.com).
 Include a detailed description of the issue or suggestion, and we will work to address it in the next stable release.

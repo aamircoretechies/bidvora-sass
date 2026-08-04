@@ -33,7 +33,7 @@ export function ProjectColumn3Page() {
         info={[
           { label: 'KeenThemes', icon: Zap },
           { label: 'SF, Bay Area', icon: MapPin },
-          { email: 'support@bidvora.app', icon: Mail },
+          { email: 'jenny@kteam.com', icon: Mail },
         ]}
       />
       <Container>

@@ -21,7 +21,7 @@ const About = () => {
       status: 'Email:',
       info: (
         <Link to="#" className="text-foreground hover:text-primary-active">
-          support@bidvora.app
+          jenny@ktstudio.com
         </Link>
       ),
     },

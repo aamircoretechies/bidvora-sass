@@ -33,7 +33,7 @@ export function ProfilePlainPage() {
         info={[
           { label: 'KeenThemes', icon: Luggage },
           { label: 'SF, Bay Area', icon: MapPin },
-          { email: 'support@bidvora.app', icon: Mail },
+          { email: 'jenny@kteam.com', icon: Mail },
         ]}
       />
       <Container>
